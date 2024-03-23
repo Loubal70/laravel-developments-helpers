@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 final class CreateServiceFileWithNoContractCommand extends GeneratorCommand
 {
     protected $name = 'make:servicefilewithoutcontract {name}';
+
     protected $type = 'Service';
 
     protected function getStub(): string
@@ -51,6 +52,7 @@ final class CreateServiceFileWithNoContractCommand extends GeneratorCommand
     protected function getPath($name): string
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
+
         return $this->laravel['path'].'/'.str_replace('\\', '/', $name.'Service').'.php';
 
     }

@@ -10,15 +10,15 @@ use lboulanger\LaravelDevelopmentHelpers\Contracts\CreateServiceContractFileActi
 final class CreateServiceContractFileAction implements CreateServiceContractFileActionContract
 {
     public function handle(
-        string      $serviceName,
-        string      $noContract,
-        Command     $serviceMakerCommand): void
+        string $serviceName,
+        string $noContract,
+        Command $serviceMakerCommand): void
     {
-        if($noContract){
+        if ($noContract) {
             return;
         }
 
-        if(config('development-helpers.with_interface')){
+        if (config('development-helpers.with_interface')) {
             $this->generateContract(serviceName: $serviceName, serviceMakerCommand: $serviceMakerCommand);
 
             return;

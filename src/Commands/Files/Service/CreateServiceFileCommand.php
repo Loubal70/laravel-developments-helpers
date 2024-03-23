@@ -8,8 +8,8 @@ use Illuminate\Support\Str;
 final class CreateServiceFileCommand extends GeneratorCommand
 {
     protected $name = 'make:servicefile';
-    protected $type = 'Service';
 
+    protected $type = 'Service';
 
     protected function getStub(): string
     {
@@ -58,6 +58,7 @@ final class CreateServiceFileCommand extends GeneratorCommand
     protected function getPath($name): string
     {
         $name = Str::replaceFirst($this->rootNamespace(), '', $name);
+
         return $this->laravel['path'].'/'.str_replace('\\', '/', $name.'Service').'.php';
     }
 }
